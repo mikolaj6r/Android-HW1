@@ -5,4 +5,14 @@
     <string name="change_contact">Change Contact</string>
     <string name="change_sound">Change Sound</string>
     <string name="contact_img_desc">Contact Image</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    <string name="sound1">Sound1</string>
+    <string name="sound2">Sound2</string>
+    <string name="sound3" >Sound3</string>
+    <string name="sound4">Sound4</string>
+    <string name="sound5">Sound5</string>
+    <string name="sound6">Sound6</string>
+    <string name="sound7">Sound7</string>
+    <string name="sound8">Sound8</string>
 </resources>
