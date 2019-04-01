@@ -15,4 +15,13 @@
     <string name="sound6">Sound6</string>
     <string name="sound7">Sound7</string>
     <string name="sound8">Sound8</string>
+    <string name="back_message">lel</string>
+    <string name="contact1">Contact1</string>
+    <string name="contact2">Contact2</string>
+    <string name="contact3">Contact3</string>
+    <string name="contact4">Contact4</string>
+    <string name="contact5">Contact5</string>
+    <string name="contact6">Contact6</string>
+    <string name="contact7">Contact7</string>
+    <string name="contact8">Contact8</string>
 </resources>

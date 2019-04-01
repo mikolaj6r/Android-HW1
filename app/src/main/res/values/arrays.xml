@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <array name="avatars">
+    <integer-array name="avatars">
         <item>@drawable/avatar_1</item>
         <item>@drawable/avatar_2</item>
         <item>@drawable/avatar_3</item>
@@ -17,18 +17,18 @@
         <item>@drawable/avatar_14</item>
         <item>@drawable/avatar_15</item>
         <item>@drawable/avatar_16</item>
-    </array>
+    </integer-array>
 
-    <array name="contacts">
-        <item>Contact1</item>
-        <item>Contact2</item>
-        <item>Contact3</item>
-        <item>Contact4</item>
-        <item>Contact5</item>
-        <item>Contact6</item>
-        <item>Contact7</item>
-        <item>Contact8</item>
-    </array>
+    <string-array name="contacts">
+        <item>@string/contact1</item>
+        <item>@string/contact2</item>
+        <item>@string/contact3</item>
+        <item>@string/contact4</item>
+        <item>@string/contact5</item>
+        <item>@string/contact6</item>
+        <item>@string/contact7</item>
+        <item>@string/contact8</item>
+    </string-array>
 
     <array name="sounds">
         <item>Sound1</item>
