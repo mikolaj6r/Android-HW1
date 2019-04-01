@@ -28,10 +28,10 @@ public class MainActivity extends AppCompatActivity {
     public static final int CONTACT_REQUEST = 2;
     private int current_sound = 0;
     private int current_contact = 0;
-    private MediaPlayer backgroundPlayer;
+
     private MediaPlayer buttonPlayer;
     static public Uri[] sounds;
-
+    boolean isPlayed=false;
 
 
     @Override
@@ -42,48 +42,52 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         buttonsSetListeners();
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                buttonPlayer.reset();
-                try {
-                    buttonPlayer.setDataSource(getApplicationContext(),sounds[current_sound]);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                buttonPlayer.prepareAsync();
-/*                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();*/
-            }
-        });
-
         sounds = new Uri[4];
         sounds[0] = Uri.parse("android.resource://" + getPackageName() + "/" +
-                R.raw.ringd);
-        sounds[1] = Uri.parse("android.resource://" + getPackageName() + "/" +
                 R.raw.ring01);
-        sounds[2] = Uri.parse("android.resource://" + getPackageName() + "/" +
+        sounds[1] = Uri.parse("android.resource://" + getPackageName() + "/" +
                 R.raw.ring02);
-        sounds[3] = Uri.parse("android.resource://" + getPackageName() + "/" +
+        sounds[2] = Uri.parse("android.resource://" + getPackageName() + "/" +
                 R.raw.ring03);
+        sounds[3] = Uri.parse("android.resource://" + getPackageName() + "/" +
+                R.raw.ring04);
+
         buttonPlayer = new MediaPlayer();
         buttonPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
 
         buttonPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             @Override
             public void onPrepared(MediaPlayer mp) {
-                backgroundPlayer.pause();
                 mp.start();
+                isPlayed = true;
             }
         });
-        buttonPlayer.setOnCompletionListener(new
-             MediaPlayer.OnCompletionListener() {
-                 @Override
-                 public void onCompletion(MediaPlayer mp) {
-                     backgroundPlayer.start();
-                 }
+
+        final FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!isPlayed) {
+                    try {
+                        buttonPlayer.setDataSource(getApplicationContext(),sounds[current_sound]);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    buttonPlayer.prepareAsync();
+                    fab.setImageResource(android.R.drawable.ic_media_pause);
+                    Snackbar.make(view, "Music played", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                }
+                else{
+                    buttonPlayer.stop();
+                    fab.setImageResource(android.R.drawable.ic_media_play);
+                    Snackbar.make(view, "Music paused", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                    isPlayed=false;
+                }
+            }
         });
+
     }
 
     @Override
@@ -136,6 +140,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void buttonsClickHandler(View view){
+        buttonPlayer.stop();
+        isPlayed = false;
         switch(view.getId()){
             case R.id.btn_changeContact:
                 Intent contactPick = new Intent(getApplicationContext(), ChangeContact.class);
@@ -171,27 +177,25 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        backgroundPlayer.pause();
         buttonPlayer.pause();
+        isPlayed = false;
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        backgroundPlayer = MediaPlayer.create(this, R.raw.mario);
-        backgroundPlayer.setOnPreparedListener(
-                new MediaPlayer.OnPreparedListener() {
-                    @Override
-                    public void onPrepared(MediaPlayer mp) {
-                        mp.setLooping(true);
-                        mp.start();
-                    }
-                });
+        try {
+            buttonPlayer.setDataSource(getApplicationContext(),sounds[current_sound]);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        buttonPlayer.prepareAsync();
     }
 
     @Override
     protected void onStop(){
         super.onStop();
-        backgroundPlayer.release();
+        buttonPlayer.release();
+        isPlayed = false;
     }
 }

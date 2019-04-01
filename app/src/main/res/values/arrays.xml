@@ -31,13 +31,9 @@
     </string-array>
 
     <array name="sounds">
-        <item>Sound1</item>
-        <item>Sound2</item>
-        <item>Sound3</item>
-        <item>Sound4</item>
-        <item>Sound5</item>
-        <item>Sound6</item>
-        <item>Sound7</item>
-        <item>Sound8</item>
+        <item>@string/sound1</item>
+        <item>@string/sound2</item>
+        <item>@string/sound3</item>
+        <item>@string/sound4</item>
     </array>
 </resources>
