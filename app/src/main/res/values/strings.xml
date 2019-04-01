@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">HW1</string>
     <string name="action_settings">Settings</string>
+    <string name="name">Name</string>
+    <string name="change_contact">Change Contact</string>
+    <string name="change_sound">Change Sound</string>
+    <string name="contact_img_desc">Contact Image</string>
 </resources>

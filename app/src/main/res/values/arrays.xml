@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="avatars">
+        <item>@drawable/avatar_1</item>
+        <item>@drawable/avatar_2</item>
+        <item>@drawable/avatar_3</item>
+        <item>@drawable/avatar_4</item>
+        <item>@drawable/avatar_5</item>
+        <item>@drawable/avatar_6</item>
+        <item>@drawable/avatar_7</item>
+        <item>@drawable/avatar_8</item>
+        <item>@drawable/avatar_9</item>
+        <item>@drawable/avatar_10</item>
+        <item>@drawable/avatar_11</item>
+        <item>@drawable/avatar_12</item>
+        <item>@drawable/avatar_13</item>
+        <item>@drawable/avatar_14</item>
+        <item>@drawable/avatar_15</item>
+        <item>@drawable/avatar_16</item>
+    </array>
+</resources>
