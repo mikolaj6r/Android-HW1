@@ -132,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+       // getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
@@ -197,7 +197,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         buttonPlayer.stop();
+        final FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setImageResource(android.R.drawable.ic_media_play);
         isPlayed = false;
     }
+
+
 
 }
